@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin-Dashboard</title>
+
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            display: block;
+            justify-content: center;
+           background-color: teal ;
+        }
+        .contener{
+            top: 23px;
+            box-shadow: 0px  111px  320px 0px white ;
+            justify-content: space-between;
+            height: 100%;
+            border-end-end-radius: 23px;     
+        }
+        button{
+            width: 210px;
+            height: auto;
+            color: auto;
+            background-color: lightskyblue ;
+            text-align: center;
+            font-size: larger;
+
+        }
+        button:hover{
+            scale: 1.1;
+            border: 1px solid red;
+            box-shadow: 0px 25px 40px 0px red;
+            animation: bzIo 5s alternate-reverse infinite;
+            outline-color: red;
+            outline-offset: 2px;  
+            -o-animation-duration: 2s; 
+            
+
+        }
+        button:focus{
+            font-style: bold;
+            font-palette: unset;
+        }
+
+        #modalSuppression{
+          
+            position: fixed;
+            inset: 0;
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            max-width: none;
+            max-height: none;
+            border: none;
+            padding: 0;
+            background: rgba(0 , 0, 0, 0.5);
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            overflow: hidden;
+
+        }
+        #modalSuppression::backdrop{
+            background: rgba(0, 0, 0, 0.2);
+        }
+      form{
+            justify-content: center;
+            max-width: 100%;
+            max-width:100%;
+            overflow: hidden;
+            position: fixed;
+            
+        }
+        
+
+        .dl{
+            text-align: center;
+            width: 340px;
+            height: 230px;
+        }
+        .btp{
+            box-shadow: 3px 1px 2px 0px orange;
+            border-radius: 5px 0px 3px 0px ;
+            font-size: larger;
+            margin-bottom: -5px;
+        }
+       
+        
+        h3{
+            text-align: center;
+            color: red;
+            text-decoration: dotted red;
+            background-color: auto;
+            border-radius: 0px solid;
+            animation: zIo 2s alternate-reverse infinite;
+           margin-top:  5%;
+           background-color:white;
+        }
+        .pa{
+            margin: 32px;
+            font-variant: small-caps;
+            font-variant-ligatures: discretionary-ligatures;
+            background-color: white;
+            animation: gd 1s alternate infinite;
+            color: lightcoral;
+        }
+        @keyframes gd {
+            to{
+                transform: translateX(25px);
+                box-shadow: 20px 0px 3px 0px orange;
+                border-radius: 0% 20% 20%  0%;
+
+
+            } form{
+                transform: translateY(-25px);
+                box-shadow: 0px 2px 32px 0px orange;
+                border-radius: 50% 0% 0%  0%;
+
+
+            }
+            
+        }
+        @keyframes zIo {
+            to{
+                scale: 1.2;
+            }
+            form{
+                scale: -1.2;
+            }
+        }
+        .im{
+            width: 80%;
+            height: 80%;
+
+        }
+        .btDanger,  .cancel{
+            margin: -42px;
+            border-radius: 50px 50px 0px 0px;
+            position:none ;
+            outline: 2px;   
+            outline-style: dotted ;   
+            outline-color: orange;
+            outline-offset: -4px;      
+        }
+
+        
+      
+
+    </style>
+</head>
+
+<body style="display: flex;">
+     <div class="contener">
+
+         <main style="margin-top: 50px;" >
+    <h1>Tableau de Bord Aministrateur</h1>
+        <!-- indicateur de performance -->
+         <div id="winget" style="background-color: lightgray; height:300px; width: 80%; height: 100%; font-size: larger;" >
+            <label for="disque">Espace disque du Serveur (principal):</label>
+            <meter  id="disque" value="85" min="0" max="100" low="70" high="90"optimum="40" style="width:80%; height: 35px; box-shadow: 0px 0px 10px 0px lightgray; " >85%</meter>
+            <p> <small>Attention: Espace critique (85% utilisé)</small></p>
+         </div>
+
+         <figure>
+          <img src="./image.png  " class="im" loading="lazy" alt="image du serveur"  > 
+         <figcaption>Figure 3.1: Topologie du réseau local et des passerelles sécurisées</figcaption>
+         </figure>
+
+         <div> <button id="ouvrirModal" class="btp" title="Attention à la purgation de données "  > <small>Purger la base de données</small> </button> </div>
+
+    </main  >
+
+  
+       
+
+     
+     </div>
+     <!-- Boite  de dialogue native -->
+
+     <dialog  id="modalSuppression" title="&Congruent; Utlisez les boutons pour annuler ou confirmer votre choix!" >
+        <form method="dialog">
+            <h3>Avertissement critique</h3>
+            <p class="pa">Voulez-vous vraiment effacer totues les données de  test? Cette action est irréversible.</p>
+            <div  style="display: block; justify-content: center;  margin-top: 80%;" >
+            <button value="cancel" class="cancel" style="float: left;" title="Vous êtes sur le point d'annuler l'action!"  >Annuler</button>
+            <button class="btDanger" value="confirm" style="float: right;"  title="vous êtes sur le point de confirmer une action crucial" >confirmer</button>
+            </div>
+        </form>
+     </dialog>
+     <script>
+
+        const modal = document.getElementById('modalSuppression')
+        const btOuvrir = document.getElementById('ouvrirModal')
+        btOuvrir.addEventListener('click', () => {
+            modal.showModal()
+        })
+
+        modal.addEventListener('close', () => {
+            if(modal.returnVAlue === 'confirm') {
+                alert('Action validée: Purge de la basee de données en cours....')
+            } else(
+                alert('Action annulée par lAdministrateur')
+            )
+        })
+     </script>
+    
+</body>
+</html>
