@@ -40,7 +40,6 @@
             animation: bzIo 5s alternate-reverse infinite;
             outline-color: red;
             outline-offset: 2px;  
-            -o-animation-duration: 2s; 
             
 
         }
@@ -140,7 +139,7 @@
             height: 80%;
 
         }
-        .btDanger,  .cancel{
+        .btDanger,  .ba{
             margin: -42px;
             border-radius: 50px 50px 0px 0px;
             position:none ;
@@ -186,14 +185,18 @@
 
      <dialog  id="modalSuppression" title="&Congruent; Utlisez les boutons pour annuler ou confirmer votre choix!" >
         <form method="dialog">
-            <h3>Avertissement critique</h3>
-            <p class="pa">Voulez-vous vraiment effacer totues les données de  test? Cette action est irréversible.</p>
+                <h3>Avertissement critique</h3>
+                <p class="pa">Voulez-vous vraiment effacer totues les données de  test? Cette action est irréversible.</p>
             <div  style="display: block; justify-content: center;  margin-top: 80%;" >
-            <button value="cancel" class="cancel" style="float: left;" title="Vous êtes sur le point d'annuler l'action!"  >Annuler</button>
-            <button class="btDanger" value="confirm" style="float: right;"  title="vous êtes sur le point de confirmer une action crucial" >confirmer</button>
+
+                <button value="ba" class="cancel" style="float: left;" title="Vous êtes sur le point d'annuler l'action!"  >Annuler</button>
+                <button class="btDanger" value="confirm" style="float: right;"  title="vous êtes sur le point de confirmer une action crucial" >confirmer</button>
+
             </div>
+
         </form>
      </dialog>
+     <script>
 
         const modal = document.getElementById('modalSuppression')
         const btOuvrir = document.getElementById('ouvrirModal')
