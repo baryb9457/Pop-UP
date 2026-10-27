@@ -48,7 +48,7 @@
             font-palette: unset;
         }
 
-        #modalSuppression{
+        #modalSuppression[open]{
           
             position: fixed;
             inset: 0;
@@ -139,7 +139,7 @@
             height: 80%;
 
         }
-        .btDanger,  .ba{
+        .btDanger,  .Cancel{
             margin: -42px;
             border-radius: 50px 50px 0px 0px;
             position:none ;
@@ -189,28 +189,31 @@
                 <p class="pa">Voulez-vous vraiment effacer totues les données de  test? Cette action est irréversible.</p>
             <div  style="display: block; justify-content: center;  margin-top: 80%;" >
 
-                <button value="ba" class="cancel" style="float: left;" title="Vous êtes sur le point d'annuler l'action!"  >Annuler</button>
+                <button value="cancel" class="Cancel" style="float: left;" title="Vous êtes sur le point d'annuler l'action!"  >Annuler</button>
                 <button class="btDanger" value="confirm" style="float: right;"  title="vous êtes sur le point de confirmer une action crucial" >confirmer</button>
 
             </div>
 
         </form>
+
      </dialog>
+
+
      <script>
 
-        const modal = document.getElementById('modalSuppression')
-        const btOuvrir = document.getElementById('ouvrirModal')
+        const modal = document.getElementById('modalSuppression');
+        const btOuvrir = document.getElementById('ouvrirModal');
         btOuvrir.addEventListener('click', () => {
-            modal.showModal()
+            modal.showModal();
         })
 
         modal.addEventListener('close', () => {
             if(modal.returnVAlue === 'confirm') {
-                alert('Action validée: Purge de la basee de données en cours....')
+                alert('Action validée: Purge de la basee de données en cours....');
             } else(
                 alert('Action annulée par lAdministrateur')
             )
-        })
+        });
      </script>
     
 </body>
